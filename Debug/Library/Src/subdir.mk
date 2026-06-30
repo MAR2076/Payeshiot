@@ -5,14 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Library/Src/GPS.c \
 ../Library/Src/Network.c \
 ../Library/Src/SIM800C.c 
 
 OBJS += \
+./Library/Src/GPS.o \
 ./Library/Src/Network.o \
 ./Library/Src/SIM800C.o 
 
 C_DEPS += \
+./Library/Src/GPS.d \
 ./Library/Src/Network.d \
 ./Library/Src/SIM800C.d 
 
@@ -24,7 +27,7 @@ Library/Src/%.o Library/Src/%.su Library/Src/%.cyclo: ../Library/Src/%.c Library
 clean: clean-Library-2f-Src
 
 clean-Library-2f-Src:
-	-$(RM) ./Library/Src/Network.cyclo ./Library/Src/Network.d ./Library/Src/Network.o ./Library/Src/Network.su ./Library/Src/SIM800C.cyclo ./Library/Src/SIM800C.d ./Library/Src/SIM800C.o ./Library/Src/SIM800C.su
+	-$(RM) ./Library/Src/GPS.cyclo ./Library/Src/GPS.d ./Library/Src/GPS.o ./Library/Src/GPS.su ./Library/Src/Network.cyclo ./Library/Src/Network.d ./Library/Src/Network.o ./Library/Src/Network.su ./Library/Src/SIM800C.cyclo ./Library/Src/SIM800C.d ./Library/Src/SIM800C.o ./Library/Src/SIM800C.su
 
 .PHONY: clean-Library-2f-Src
 

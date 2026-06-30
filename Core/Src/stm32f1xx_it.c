@@ -22,6 +22,7 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "GPS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -239,13 +240,9 @@ void USART2_IRQHandler(void)
   HAL_UART_IRQHandler(&huart2);
   /* USER CODE BEGIN USART2_IRQn 1 */
 
-  if(__HAL_UART_GET_FLAG(&huart2, UART_FLAG_IDLE))
-  {
-      __HAL_UART_CLEAR_IDLEFLAG(&huart2);
+  uint16_t dma_pos = GPS_RING_SIZE - __HAL_DMA_GET_COUNTER(huart2.hdmarx);
 
-      GPS_UART_IdleCallback();
-  }
-
+  GPS_Ring_DMA_Update(dma_pos);
   /* USER CODE END USART2_IRQn 1 */
 }
 

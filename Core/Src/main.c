@@ -18,6 +18,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -56,7 +59,7 @@ bool AT, SIM;
 int __io_putchar(int ch)
 {
     HAL_UART_Transmit(
-        &huart2,
+        &huart3,
         (uint8_t *)&ch,
         1,
         HAL_MAX_DELAY);
